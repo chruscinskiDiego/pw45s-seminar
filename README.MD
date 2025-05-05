@@ -54,8 +54,8 @@ Internamente, o Nest utiliza o servidor HTTP [Express](https://expressjs.com/) p
 ---
 ### 1.4 Servidores Web Disponíveis
 
-- **Express** (roda em servidor nginx)
-- **Fastify** (roda em servidor nginx)
+- **Express**
+- **Fastify**
 - **Custom HTTP Adapter**: você pode criar o seu se precisar de outro servidor.
 
 ---
@@ -129,7 +129,7 @@ git clone https://github.com/chruscinskiDiego/pw45s-seminar.git
 ```
 ### 3.2 Acesse a pasta e instale os pacotes
 
-Acesse a pasta **pw45-seminar** e execute o seguinte comando no terminal:
+Acesse a pasta **pw45s-seminar** e execute o seguinte comando no terminal:
 
 ```
 npm install
