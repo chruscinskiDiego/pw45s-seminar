@@ -1,149 +1,92 @@
-# Seminário Acadêmico – Framework NestJS  
-#### Por: Diego Chruscinski de Souza e Gustavo Moretto Dalla Costa
+# Academic seminar — NestJS framework
+#### By Diego Chruscinski de Souza and Gustavo Moretto Dalla Costa
 
----
-## 1. Apresentação
+## 1. Framework overview
 
----
-### 1.1 Introdução 
+### 1.1 Introduction
 
-Nest é um framework para construção de aplicações **Node.js** eficientes e escaláveis do lado do servidor. Ele permite a utilização de **JavaScript** e **TypeScript**, combinando conceitos de:
+Nest is a framework for building server-side Node.js applications. It supports JavaScript and TypeScript and combines object-oriented programming (OOP), functional programming (FP) and functional reactive programming (FRP).
 
-- **POO** (Programação Orientada a Objetos)  
-- **FP** (Programação Funcional)  
-- **FRP** (Programação Reativa Funcional)  
+Nest uses Express as its default HTTP server and can also run with a Fastify adapter.
 
-Internamente, o Nest utiliza o servidor HTTP [Express](https://expressjs.com/) por padrão, mas pode ser configurado para rodar sobre [Fastify](https://www.fastify.io/) para ganhos de performance.
+### 1.2 Advantages and trade-offs
 
----
-### 1.2 Vantagens e Desvantagens
+**Advantages**
 
-### Vantagens
+- Modular architecture separates application responsibilities.
+- Native TypeScript support provides static typing, completion and refactoring tools.
+- Dependency injection supports testing and decoupling.
+- The CLI generates project structure and components.
+- The ecosystem includes ORM integration, validation, WebSockets and microservice support.
 
-- **Arquitetura Modular**  
-  Divide sua aplicação em módulos independentes e fáceis de manter.
-- **TypeScript nativo**  
-  Tipagem estática, autocompletar e refatoração segura.  
-- **Injeção de Dependências**  
-  Facilita testes e desacoplamento de componentes.  
-- **CLI Poderosa**  
-  Geração de *boilerplate* em segundos.  
-- **Ecossistema Rico**  
-  Suporte oficial a ORM (TypeORM, Prisma), validação (class-validator), WebSockets, Micro-services, etc.
+**Trade-offs**
 
-### Desvantagens
+- Small APIs can require more boilerplate than a minimal framework.
+- Decorators, modules and providers introduce a learning curve.
+- Framework abstractions can add overhead; performance depends on configuration and workload.
 
-- **Boilerplate**  
-  Para APIs muito simples, a quantidade de arquivos gerados pode parecer exagerada.  
-- **Curva de Aprendizado**  
-  Conceitos de decorators, módulos e providers podem assustar iniciantes.  
-- **Overhead**  
-  Performance ligeiramente menor que micro-frameworks ultra-leves, salvo otimizações.
+### 1.3 Main concepts
 
----
+- **Modules:** group related functionality.
+- **Controllers:** define routes and handle HTTP requests.
+- **Providers:** injectable services, repositories and external clients.
+- **Guards, pipes, interceptors and filters:** authorization, validation and error-handling stages.
+- **WebSockets and GraphQL:** supported application interfaces.
+- **Microservices:** abstractions for RPC and event-based communication.
 
-### 1.3 Principais Características
+### 1.4 HTTP server options
 
-- **Módulos**: encapsulamento lógico de funcionalidades.  
-- **Controllers**: definem rotas e manipulam requisições HTTP.  
-- **Providers**: serviços injetáveis, como repositórios e clients externos.  
-- **Guards, Pipes, Interceptors e Filters**: tratamento de autorização, validação e erros em um pipeline unificado.  
-- **WebSockets & GraphQL**: suporte nativo.  
-- **Micro-services**: abstração para comunicação RPC e eventos.
+- Express.
+- Fastify.
+- Custom HTTP adapters.
 
----
-### 1.4 Servidores Web Disponíveis
+### 1.5 Environment
 
-- **Express**
-- **Fastify**
-- **Custom HTTP Adapter**: você pode criar o seu se precisar de outro servidor.
+- Node.js 20 or newer, as stated for this coursework.
+- npm or Yarn.
 
----
-### 1.5 Configurações necessárias para rodar uma aplicação
+### 1.6 Framework license and community
 
-   - Node.js ≥ 20  
-   - NPM ou Yarn 
+Nest is an open-source framework distributed under the MIT license. This describes the framework's license, not a separate license grant for this coursework repository.
 
----
-### 1.6 Licença
+The seminar credits Kamil Myśliwiec as the framework's creator and highlights community contributions. See the [Nest repository](https://github.com/nestjs/nest).
 
-O Nest é um projeto de código aberto licenciado pelo **MIT**, cujo desenvolvimento contínuo é possível graças ao apoio da comunidade.
+### 1.7 Seminar conclusions
 
----
-### 1.7 Desenvolvimento e Comunidade
+The seminar highlights Nest's documentation, TypeScript tooling and consistent structure as useful foundations for maintainable applications. The framework is particularly relevant when a project benefits from explicit modules and dependency injection.
 
-- **Criador / Mantenedor principal:** Kamil Myśliwiec
-- **Contribuições**: comunidade ativa no GitHub
-- **Repositório**: [https://github.com/nestjs/nest](https://github.com/nestjs/nest)
+## 2. Create a NestJS application
 
----
-### 1.8 Conclusões: 
+### Install the CLI
 
-- **Facilidade de aprendizado**: ótima documentação e tutoriais oficiais.
-- **Qualidade dos materiais**: exemplos claros, atualizados e revisados pela equipe responsável pelo projeto.
-- **Configuração**: CLI intuitiva, estrutura padronizada — ideal para times grandes.
-- **Recomendação**: excelente escolha para projetos de tamanho médio a grande, onde manutenção e escalabilidade são prioritárias.
-
----
-## 2. Tutorial de instalação e criação de uma aplicação NestJS
-
----
-### 2.1 Instalação
-
-```
+```bash
 npm install -g @nestjs/cli
 ```
 
-### 2.2 Criação
+### Generate a project
 
-```
-nest new <nome-do-projeto>
-```
-
-### 2.3 Seleção do gerenciador de pacotes
-
-```
-? Which package manager would you ❤️ to use? (Use arrow keys)
-> npm
-  yarn
-  pnpm
+```bash
+nest new <project-name>
 ```
 
-### 2.4 Execução da aplicação
+Choose npm, Yarn or pnpm when prompted, then start the generated application:
 
-```
+```bash
 npm run start
 ```
 
----
-## 3. Tutorial de instalação e execução desta aplicação NestJS
+## 3. Run this coursework application
 
----
-
-### 3.1 Clone o repositório
-
-Em uma pasta do seu computador, clone este repositório executando o seguinte comando no terminal:
-
-```
+```bash
 git clone https://github.com/chruscinskiDiego/pw45s-seminar.git
-```
-### 3.2 Acesse a pasta e instale os pacotes
-
-Acesse a pasta **pw45s-seminar** e execute o seguinte comando no terminal:
-
-```
+cd pw45s-seminar
 npm install
-```
-
-### 3.3 Execute a API
-
-Execute a API com o seguinte comando no terminal:
-
-```
 npm run start
 ```
----
-#### Referências
 
-- Documentação oficial NestJS: [https://docs.nestjs.com/](https://docs.nestjs.com/)
-- Repositório no GitHub: [https://github.com/nestjs/nest](https://github.com/nestjs/nest)
+Review database configuration and dependencies before starting the API.
+
+## References
+
+- [Official NestJS documentation](https://docs.nestjs.com/).
+- [NestJS source repository](https://github.com/nestjs/nest).
